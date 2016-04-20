@@ -1,6 +1,6 @@
 HTML / Javascript - How to show a QRCode
 
-Edit sample.html, 
+Edit showQRCode.html, 
 you just need to fill the QRCode content in the variable QRCODE_CONTENT
 
         var show_qrcode = function () {

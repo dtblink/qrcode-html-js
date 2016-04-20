@@ -12,22 +12,21 @@
     </form>
 
     <script type="text/javascript">
+        var show_qrcode = function () {
+
+            var QRCODE_CONTENT = '1:SdAuziOdMCncrYH/BO5/ntLqVo+3aONnoPhjRTzFLiGgXyAYf6rergb+M86SS4uoUclVG4mPzs6e4Z+1pfcacA==:FfJwpyK5voYMYs6jnB1djQ==';
+
+            var form = document.forms['qrForm'];
+            document.getElementById('qr').innerHTML = create_qrcode(QRCODE_CONTENT);
+        };
+
         var create_qrcode = function (text) {
             var typeNumber = 10;
             var errorCorrectLevel = 'M';
             var qr = qrcode(typeNumber, errorCorrectLevel);
             qr.addData(text);
             qr.make();
-            var imgTag = qr.createImgTag(5, 8);
-            return imgTag;
-        };
-
-        var show_qrcode = function () {
-            var form = document.forms['qrForm'];
-
-            var text = '1:SdAuziOdMCncrYH/BO5/ntLqVo+3aONnoPhjRTzFLiGgXyAYf6rergb+M86SS4uoUclVG4mPzs6e4Z+1pfcacA==:FfJwpyK5voYMYs6jnB1djQ==';
-
-            document.getElementById('qr').innerHTML = create_qrcode(text);
+            return qr.createImgTag(5, 8);
         };
     </script>
 </body>

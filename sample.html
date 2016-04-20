@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Utf-8">
+    <script type="text/javascript" src="qrcode.js"></script>
+</head>
+
+<body onload="show_qrcode()">
+    <form name="qrForm">
+        <div id="qr"></div>
+    </form>
+
+    <script type="text/javascript">
+        var create_qrcode = function (text) {
+            var typeNumber = 10;
+            var errorCorrectLevel = 'M';
+            var qr = qrcode(typeNumber, errorCorrectLevel);
+            qr.addData(text);
+            qr.make();
+            var imgTag = qr.createImgTag(5, 8);
+            return imgTag;
+        };
+
+        var show_qrcode = function () {
+            var form = document.forms['qrForm'];
+
+            var text = '1:SdAuziOdMCncrYH/BO5/ntLqVo+3aONnoPhjRTzFLiGgXyAYf6rergb+M86SS4uoUclVG4mPzs6e4Z+1pfcacA==:FfJwpyK5voYMYs6jnB1djQ==';
+
+            document.getElementById('qr').innerHTML = create_qrcode(text);
+        };
+    </script>
+</body>
+
+</html>
